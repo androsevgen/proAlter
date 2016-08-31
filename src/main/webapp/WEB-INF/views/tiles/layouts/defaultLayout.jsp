@@ -12,8 +12,8 @@
 	<link href="<c:url value='/static/css/bootstrap.css' />"  rel="stylesheet"></link>
 	<link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
 </head>
- 
-<body>
+
+<body scroll="yes">
 		<header id="header">
 			<tiles:insertAttribute name="header" />
 		</header>
