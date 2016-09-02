@@ -20,6 +20,14 @@ public class AppController {
 	public String supervisorsPage(ModelMap model) {
 		return "supervisors";
 	}
+	@RequestMapping(value = { "/calculator"}, method = RequestMethod.GET)
+	public String calculatorPage(ModelMap model) {
+		return "calculator";
+	}
+	@RequestMapping(value = { "/game"}, method = RequestMethod.GET)
+	public String gamePage(ModelMap model) {
+		return "game";
+	}
 
 	@RequestMapping(value = { "/contactus"}, method = RequestMethod.GET)
 	public String contactUsPage(ModelMap model) {

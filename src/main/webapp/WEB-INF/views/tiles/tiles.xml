@@ -23,12 +23,25 @@
    <definition name="supervisors" extends="base-definition">
        <put-attribute name="title" value="supervisors" />
        <put-attribute name="body" value="/WEB-INF/views/pages/supervisors.jsp" />
-   </definition>  
-      
-   <!-- Contact-us Page -->
+   </definition>
+
+    <!-- Contact-us Page -->
+    <definition name="calculator" extends="base-definition">
+        <put-attribute name="title" value="calculator" />
+        <put-attribute name="body" value="/WEB-INF/views/pages/calculator.jsp" />
+    </definition>
+
+    <definition name="game" extends="base-definition">
+        <put-attribute name="title" value="game" />
+        <put-attribute name="body" value="/WEB-INF/views/pages/game.jsp" />
+    </definition>
+
+    <!-- Contact-us Page -->
    <definition name="contactus" extends="base-definition">  
        <put-attribute name="title" value="Contact Us" />  
        <put-attribute name="body" value="/WEB-INF/views/pages/contactus.jsp" />  
    </definition>  
  
 </tiles-definitions>
+
+
