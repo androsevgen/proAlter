@@ -5,6 +5,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.sql.Connection;
+
 
 @Controller
 //@RequestMapping("/")
@@ -17,6 +19,7 @@ public class AppController {
 
     @RequestMapping(value = {"/supervisors"}, method = RequestMethod.GET)
     public String supervisorsPage(ModelMap model) {
+
         return "supervisors";
     }
 
@@ -33,5 +36,9 @@ public class AppController {
     @RequestMapping(value = {"/contactus"}, method = RequestMethod.GET)
     public String contactUsPage(ModelMap model) {
         return "contactus";
+    }
+    @RequestMapping(value = {"/dani"}, method = RequestMethod.GET)
+    public String daniUsPage(ModelMap model) {
+        return "dani";
     }
 }

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/mvc
+	   http://www.springframework.org/schema/mvc/spring-mvc.xsd
+	   http://www.springframework.org/schema/context
+	   http://www.springframework.org/schema/context/spring-context.xsd
+	   http://www.springframework.org/schema/jdbc
+       http://www.springframework.org/schema/jdbc/spring-jdbc.xsd ">
+
+    <!--find property file. See bean id='dataSource' for example ${jdbc.hsqldb.driverClass}-->
+<!--
+    <context:property-placeholder location="classpath:util.properties" />
+-->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="org.firebirdsql.jdbc.FBDriver"/>
+        <property name="url" value="jdbc:firebirdsql:192.168.20.13/3050:alter_curent"/>
+        <property name="username" value="SYSDBA"/>
+        <property name="password" value="sysadmin"/>
+    </bean>
+    <!-- XML Bean Definitions -->
+<!--    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${jdbc.hsqldb.driverClass}" />
+        <property name="url" value="${jdbc.hsqldb.url}" />
+        <property name="username" value="${jdbc.hsqldb.username}" />
+        <property name="password" value="${jdbc.hsqldb.password}" />
+    </bean>-->
+
+
+</beans>

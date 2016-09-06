@@ -10,8 +10,8 @@
        <put-attribute name="header" value="/WEB-INF/views/tiles/template/defaultHeader.jsp" />  
        <put-attribute name="menu" value="/WEB-INF/views/tiles/template/defaultMenu.jsp" />  
        <put-attribute name="body" value="" />  
-       <put-attribute name="footer" value="/WEB-INF/views/tiles/template/defaultFooter.jsp" />  
-   </definition>  
+       <put-attribute name="footer" value="/WEB-INF/views/tiles/template/defaultFooter.jsp" />
+   </definition>
  
    <!-- Home Page -->
    <definition name="home" extends="base-definition">  
@@ -40,7 +40,13 @@
    <definition name="contactus" extends="base-definition">  
        <put-attribute name="title" value="Contact Us" />  
        <put-attribute name="body" value="/WEB-INF/views/pages/contactus.jsp" />  
-   </definition>  
+   </definition>
+
+
+    <definition name="dani" extends="base-definition">
+       <put-attribute name="title" value="dani" />
+       <put-attribute name="body" value="/WEB-INF/views/pages/dani.jsp" />
+   </definition>
  
 </tiles-definitions>
 

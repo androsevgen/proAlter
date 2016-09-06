@@ -69,7 +69,22 @@
 		    <artifactId>jstl</artifactId>
 		    <version>1.2</version>
 		</dependency>
-		
+		<!-- https://mvnrepository.com/artifact/org.firebirdsql.jdbc/jaybird -->
+		<dependency>
+			<groupId>org.firebirdsql.jdbc</groupId>
+			<artifactId>jaybird</artifactId>
+			<version>2.2.5</version>
+			<type>pom</type>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>4.3.2.RELEASE</version>
+		</dependency>
+
+
+
 	</dependencies>
 
 	<build>
@@ -97,5 +112,13 @@
 			</plugins>
 		</pluginManagement>
 		<finalName>proAlter</finalName>
+		<!--need to find configs in tests in package web-inf like
+    @ContextConfiguration(locations = {"classpath:/config/application-context.xml"
+    -->
+		<testResources>
+			<testResource>
+				<directory>src/main/webapp/WEB-INF/config</directory>
+			</testResource>
+		</testResources>
 	</build>
 </project>
