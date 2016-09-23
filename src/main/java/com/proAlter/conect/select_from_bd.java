@@ -37,16 +37,16 @@ public class select_from_bd {
                 String GOODSSNAME = resultSet.getString("GOODSSNAME");
                 String GOODSGROUPSNAME = resultSet.getString("GOODSGROUPSNAME");
                 String ADDRESSLOCATION = resultSet.getString("ADDRESSLOCATION");
-                System.out.println(ITEMCOLVO +
-                        ITEMSUM +
-                        ITEMVES +
-                        AGENT +
-                        DOCDATE +
-                        DATEMONTH +
-                        GoodsGType +
-                        CLIENTSNAME +
-                        GOODSSNAME +
-                        GOODSGROUPSNAME +
+                System.out.println(ITEMCOLVO +" "+
+                        ITEMSUM +" "+
+                        ITEMVES +" "+
+                        AGENT +" "+
+                        DOCDATE +" "+
+                        DATEMONTH +" "+
+                        GoodsGType +" "+
+                        CLIENTSNAME +" "+
+                        GOODSSNAME +" "+
+                        GOODSGROUPSNAME +" "+
                         ADDRESSLOCATION);
             }
         } catch (SQLException e) {
