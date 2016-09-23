@@ -38,6 +38,15 @@
           <element id="library" level="project" name="Maven: antlr:antlr:2.7.7" />
           <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:4.3.2.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-tx:4.3.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.firebirdsql.jdbc:jaybird:2.1.6" />
+          <element id="library" level="project" name="Maven: xalan:xalan:2.3.1" />
+          <element id="library" level="project" name="Maven: junit:junit:3.8.2" />
+          <element id="library" level="project" name="Maven: geronimo-spec:geronimo-spec-j2ee:1.4-rc4" />
+          <element id="library" level="project" name="Maven: log4j:log4j:1.2.15" />
+          <element id="library" level="project" name="Maven: javax.mail:mail:1.4" />
+          <element id="library" level="project" name="Maven: javax.activation:activation:1.1" />
+          <element id="library" level="project" name="Maven: javax.jms:jms:1.1" />
+          <element id="library" level="project" name="Maven: org.firebirdsql.jdbc:jaybird-jdk18:2.2.10" />
         </element>
       </element>
       <element id="directory" name="META-INF">

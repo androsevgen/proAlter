@@ -1,23 +1,23 @@
 package com.proAlter.conect;
-
 import org.firebirdsql.jdbc.FBDriver;
 
-import java.sql.Connection;
-import java.sql.Driver;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+
+
+import java.sql.*;
+
+
 
 public class conect_to_bd {
-    public String getUrl() {
+    public static String getUrl() {
         return url;
     }
 
-    public String getUser() {
+    public static String getUser() {
         return user;
     }
 
-    public String getPass() {
-        return pass;
+    public static String getPassword() {
+        return password;
     }
 
     public Connection getConnection() {
@@ -28,21 +28,27 @@ public class conect_to_bd {
         this.connection = connection;
     }
 
-    private final String url = "jdbc:firebirdsql:192.168.20.13/3050:alter_curent?lc_ctype=WIN1251;sql_dialect=3";
-    private final String user = "sysdba";
-    private final String pass = "sysadmin";
-    Connection connection;
+    // JDBC URL, username and password of MySQL server
+    private static final String url = "jdbc:firebirdsql:192.168.20.13/3050:alter_curent?lc_ctype=WIN1251;sql_dialect=3";
+    private static final String user = "sysdba";
+    private static final String password = "sysadmin";
+
+    private Connection connection;
 
     public conect_to_bd() {
-
+        Driver driver = new FBDriver();
         try {
-            Driver driver = new FBDriver();
             DriverManager.registerDriver(driver);
-            connection = DriverManager.getConnection(url,user,pass);
+            connection = DriverManager.getConnection(url,user,password);
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-}
 
+
+    // JDBC variables for opening and managing connection
+//    private static Connection con;
+//    private static Statement stmt;
+//    private static ResultSet rs;
+}
 

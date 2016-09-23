@@ -82,7 +82,16 @@
 			<artifactId>spring-jdbc</artifactId>
 			<version>4.3.2.RELEASE</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.firebirdsql.jdbc</groupId>
+			<artifactId>jaybird</artifactId>
+			<version>2.1.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.firebirdsql.jdbc</groupId>
+			<artifactId>jaybird-jdk18</artifactId>
+			<version>2.2.10</version>
+		</dependency>
 
 
 	</dependencies>
