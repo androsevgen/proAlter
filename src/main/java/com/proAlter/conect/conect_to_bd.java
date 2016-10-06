@@ -1,11 +1,7 @@
 package com.proAlter.conect;
 import org.firebirdsql.jdbc.FBDriver;
 
-
-
 import java.sql.*;
-
-
 
 public class conect_to_bd {
     public static String getUrl() {
@@ -44,11 +40,5 @@ public class conect_to_bd {
             e.printStackTrace();
         }
     }
-
-
-    // JDBC variables for opening and managing connection
-//    private static Connection con;
-//    private static Statement stmt;
-//    private static ResultSet rs;
 }
 

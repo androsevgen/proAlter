@@ -1,20 +1,14 @@
 package com.proAlter.conect;
 
-import org.apache.commons.csv.CSVFormat;
-import org.apache.commons.csv.CSVPrinter;
-import org.apache.commons.csv.QuoteMode;
-
-import java.io.FileWriter;
-import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
+import java.util.ArrayList;
 
 public class select_from_bd {
 
 
-    public String rcd() {
+    public ArrayList<Object> rcd() {
         conect_to_bd res = new conect_to_bd();
         String t700 = "SELECT \n" +
                 "    ITEMCOLVO,\n" +
@@ -30,10 +24,16 @@ public class select_from_bd {
                 "    ADDRESSLOCATION\n" +
                 "from SPR_SELL2_RCD  order by DOCMONTH";
 
+
+        ArrayList<Object> object = null;
+
         try {
+
             Statement statement = res.getConnection().createStatement();
             ResultSet resultSet = statement.executeQuery(t700);
+
             while (resultSet.next()) {
+
                 double ITEMCOLVO = resultSet.getDouble("ITEMCOLVO");
                 double ITEMSUM = resultSet.getDouble("ITEMSUM");
                 double ITEMVES = resultSet.getDouble("ITEMVES");
@@ -45,41 +45,29 @@ public class select_from_bd {
                 String GOODSSNAME = resultSet.getString("GOODSSNAME");
                 String GOODSGROUPSNAME = resultSet.getString("GOODSGROUPSNAME");
                 String ADDRESSLOCATION = resultSet.getString("ADDRESSLOCATION");
-               /* System.out.println(ITEMCOLVO +" "+
-                        ITEMSUM +" "+
-                        ITEMVES +" "+
-                        AGENT +" "+
-                        DOCDATE +" "+
-                        DATEMONTH +" "+
-                        GoodsGType +" "+
-                        CLIENTSNAME +" "+
-                        GOODSSNAME +" "+
-                        GOODSGROUPSNAME +" "+
-                        ADDRESSLOCATION);*/
-                try {
-                    CSVFormat csvFileFormat1 = CSVFormat.DEFAULT.withRecordSeparator("\n");
 
-                    FileWriter writer = new FileWriter("C:\\csv\\rcd.csv");
-                    CSVFormat csvFileFormat = CSVFormat.DEFAULT.withHeader("Кол-во;Сумма;КГ;Агент;Дата;Месяц;Тип товара;Клиент;Товар;Группа товара;Адрес факт").withEscape('\\').withQuoteMode(QuoteMode.NONE);
-                    CSVPrinter csvFilePrinter = new CSVPrinter(writer, csvFileFormat);
+                object = new ArrayList<>();
 
-                        csvFilePrinter.printRecord(ITEMCOLVO + ITEMSUM + ITEMVES + AGENT + DOCDATE + DATEMONTH +GoodsGType +CLIENTSNAME + GOODSSNAME + GOODSGROUPSNAME + ADDRESSLOCATION);
-                        writer.flush();
-                        writer.close();
-                        csvFilePrinter.close();
+                object.add(ITEMCOLVO);
+                object.add(ITEMSUM);
+                object.add(ITEMVES);
+                object.add(AGENT);
+                object.add(DOCDATE);
+                object.add(DATEMONTH);
+                object.add(GoodsGType);
+                object.add(CLIENTSNAME);
+                object.add(GOODSSNAME);
+                object.add(GOODSGROUPSNAME);
+                object.add(ADDRESSLOCATION);
 
-
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
+               //System.out.println(objects);
 
             }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-        return null;
+        //System.out.println(object.size());
+        return object;
     }
 }
