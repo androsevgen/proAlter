@@ -4,9 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import java.sql.Connection;
-
+import com.proAlter.conect.select_from_bd;
+import com.proAlter.conect.csv;
 
 @Controller
 //@RequestMapping("/")
@@ -19,7 +18,10 @@ public class AppController {
 
     @RequestMapping(value = {"/supervisors"}, method = RequestMethod.GET)
     public String supervisorsPage(ModelMap model) {
-
+        select_from_bd seli = new select_from_bd();
+        seli.rcd();
+        csv c = new csv();
+        c.commn();
         return "supervisors";
     }
 
@@ -37,8 +39,37 @@ public class AppController {
     public String contactUsPage(ModelMap model) {
         return "contactus";
     }
+
     @RequestMapping(value = {"/dani"}, method = RequestMethod.GET)
     public String daniUsPage(ModelMap model) {
         return "dani";
     }
+
+    /*
+        @RequestMapping(value = "/getFile", method = RequestMethod.GET)
+        public ModelAndView out(HttpServletResponse response) {
+
+            ModelAndView mv = new ModelAndView();
+
+
+            File file = new File("file.csv");
+            try {
+                FileInputStream fileIn = new FileInputStream(file);
+                response.setHeader("Content-Disposition", "attachment;filename=" + file);
+                response.setContentType("text/plain");
+
+                OutputStream os = response.getOutputStream();
+                IOUtils.copy(fileIn, os);
+                os.flush();
+                os.close();
+                fileIn.close();
+                response.flushBuffer();
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+
+            return mv;
+        }*/
+
 }
