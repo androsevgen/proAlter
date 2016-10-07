@@ -6,6 +6,7 @@ import org.apache.commons.csv.QuoteMode;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.List;
 
 public class csv {
 
@@ -16,18 +17,20 @@ public class csv {
 
             FileWriter writer = new FileWriter("C:\\csv\\rcd.csv");
 
-            CSVFormat csvFileFormat = CSVFormat.DEFAULT.withHeader("Кол-во;Сумма;КГ;Агент;Дата;Месяц;Тип товара;Клиент;Товар;Группа товара;Адрес факт").withEscape('\\').withQuoteMode(QuoteMode.NONE);
+            CSVFormat csvFileFormat = CSVFormat.DEFAULT.withHeader("Кол-во;Сумма;КГ;Агент;Дата;Клиент;Товар;Адрес факт;Тип товара;Месяц;Группа товара;").withEscape('\\').withQuoteMode(QuoteMode.NONE);
 
             CSVPrinter csvFilePrinter = new CSVPrinter(writer, csvFileFormat);
 
+            List<Object> line = sel.rcd();
+            for (Object o : line) {
+                Object[] obj = (Object[]) o;
+                csvFilePrinter.printRecord(obj[0] + ";" + obj[1] + ";" + obj[2] + ";" + obj[3] + ";" + obj[4] + ";" + obj[5] + ";" +
+                        obj[6] + ";" + obj[7] + ";" + obj[8] + ";" + obj[9] + ";" + obj[10]);
 
-            csvFilePrinter.printRecord(sel.rcd().get(0) + ";" + sel.rcd().get(1) + sel.rcd().get(2) + ";" + sel.rcd().get(3) + ";" + sel.rcd().get(4) + ";" + sel.rcd().get(5) + ";" +
-                    sel.rcd().get(6) + ";" + sel.rcd().get(7) + ";" + sel.rcd().get(8) + ";" + sel.rcd().get(9) + ";" + sel.rcd().get(10));
-
+            }
             writer.flush();
             writer.close();
             csvFilePrinter.close();
-
 
         } catch (IOException e) {
             e.printStackTrace();

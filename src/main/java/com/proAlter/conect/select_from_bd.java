@@ -16,7 +16,7 @@ public class select_from_bd {
                 "    ITEMVES,\n" +
                 "    AGENT,\n" +
                 "    DOCDATE,\n" +
-                "    UDFUMONTH(DOCDATE)||'.'||UDFUYEAR(DOCDATE) DATEMONTH,\n" +
+                "    DOCMONTH,\n" +
                 "    GoodsGType,\n" +
                 "    CLIENTSNAME,\n" +
                 "    GOODSSNAME,\n" +
@@ -24,50 +24,51 @@ public class select_from_bd {
                 "    ADDRESSLOCATION\n" +
                 "from SPR_SELL2_RCD  order by DOCMONTH";
 
-
-        ArrayList<Object> object = null;
+        Object[] object = null;
+        ArrayList<Object> line = new ArrayList<>();
 
         try {
 
             Statement statement = res.getConnection().createStatement();
+
             ResultSet resultSet = statement.executeQuery(t700);
 
             while (resultSet.next()) {
+                Object ITEMCOLVO = resultSet.getObject("ITEMCOLVO");//Кол-во
+                String ITEMSUM = String.valueOf(resultSet.getString("ITEMSUM"));//Сумма
+                Object ITEMVES = resultSet.getObject("ITEMVES");//КГ
+                String AGENT = resultSet.getString("AGENT");//Агент
+                Object DOCDATE = resultSet.getObject("DOCDATE");//Дата
+                String GoodsGType = resultSet.getString("GoodsGType");//Тип товара
+                String CLIENTSNAME = resultSet.getString("CLIENTSNAME");//Клиент
+                String GOODSSNAME = resultSet.getString("GOODSSNAME");//Товар
+                String ADDRESSLOCATION = resultSet.getString("ADDRESSLOCATION");//Адрес факт
+                String DATEMONTH = resultSet.getString("DOCMONTH");//Месяц
+                String GOODSGROUPSNAME = resultSet.getString("GOODSGROUPSNAME");//Группа товара
 
-                double ITEMCOLVO = resultSet.getDouble("ITEMCOLVO");
-                double ITEMSUM = resultSet.getDouble("ITEMSUM");
-                double ITEMVES = resultSet.getDouble("ITEMVES");
-                String AGENT = resultSet.getString("AGENT");
-                String DOCDATE = resultSet.getString("DOCDATE");
-                String DATEMONTH = resultSet.getString("DATEMONTH");
-                String GoodsGType = resultSet.getString("GoodsGType");
-                String CLIENTSNAME = resultSet.getString("CLIENTSNAME");
-                String GOODSSNAME = resultSet.getString("GOODSSNAME");
-                String GOODSGROUPSNAME = resultSet.getString("GOODSGROUPSNAME");
-                String ADDRESSLOCATION = resultSet.getString("ADDRESSLOCATION");
+                object = new Object[11];
 
-                object = new ArrayList<>();
+                object[0] = ITEMCOLVO;
+                object[1] = ITEMSUM;
+                object[2] = ITEMVES;
+                object[3] = AGENT;
+                object[4] = DOCDATE;
+                object[5] = CLIENTSNAME;
+                object[6] = GOODSSNAME;
+                object[7] = ADDRESSLOCATION;
+                object[8] = GoodsGType;
+                object[9] = DATEMONTH;
+                object[10] = GOODSGROUPSNAME;
 
-                object.add(ITEMCOLVO);
-                object.add(ITEMSUM);
-                object.add(ITEMVES);
-                object.add(AGENT);
-                object.add(DOCDATE);
-                object.add(DATEMONTH);
-                object.add(GoodsGType);
-                object.add(CLIENTSNAME);
-                object.add(GOODSSNAME);
-                object.add(GOODSGROUPSNAME);
-                object.add(ADDRESSLOCATION);
-
-               //System.out.println(objects);
-
+                line.add(object);
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        //System.out.println(object.size());
-        return object;
+
+        for (Object o : line) {
+        }
+        return line;
     }
 }
