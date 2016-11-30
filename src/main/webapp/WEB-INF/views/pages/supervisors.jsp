@@ -4,8 +4,10 @@
 
 <html>
 <body scroll="yes">
-<h2><li><a href="/static/img/alter.png">Завантажити дані</a></li></h2>
 
+<h3>
+Ваш файл на диску С в папці csv
+</h3>
 
 </body>
 </html>

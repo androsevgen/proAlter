@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.proAlter.conect.select_from_bd;
 import com.proAlter.conect.csv;
 
+import java.io.File;
+
 @Controller
 //@RequestMapping("/")
 public class AppController {
@@ -21,6 +23,11 @@ public class AppController {
         select_from_bd seli = new select_from_bd();
         seli.rcd();
         csv c = new csv();
+
+        File file = new File("C:\\csv\\");
+        file.mkdirs();
+
+
         c.commn();
         return "supervisors";
     }
