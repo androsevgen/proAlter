@@ -22,6 +22,7 @@ public class AppController {
     public String supervisorsPage(ModelMap model) {
         select_from_bd seli = new select_from_bd();
         seli.rcd();
+
         csv c = new csv();
 
         File file = new File("C:\\csv\\");

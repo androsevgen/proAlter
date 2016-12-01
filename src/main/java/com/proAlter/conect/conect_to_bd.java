@@ -30,14 +30,15 @@ public class conect_to_bd {
 
     private Connection connection;
 
+
     public conect_to_bd() {
         Driver driver = new FBDriver();
         try {
             DriverManager.registerDriver(driver);
             connection = DriverManager.getConnection(url,user,password);
-        } catch (SQLException e) {
+                    } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
+        }
 }
 

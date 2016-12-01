@@ -26,6 +26,7 @@ public class select_from_bd {
         Object[] object = null;
         ArrayList<Object> line = new ArrayList<>();
 
+
         try {
 
             Statement statement = res.getConnection().createStatement();
@@ -62,9 +63,16 @@ public class select_from_bd {
                 line.add(object);
             }
 
+
+            statement.close();
+            resultSet.close();
+            res.getConnection().close();
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+
 
         for (Object o : line) {
         }
