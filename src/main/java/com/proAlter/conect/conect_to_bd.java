@@ -24,9 +24,9 @@ public class conect_to_bd {
         this.connection = connection;
     }
 
-    private static final String url = "jdbc:firebirdsql:192.168.20.13/3050:alter_curent?lc_ctype=WIN1251;sql_dialect=3";
+    private static final String url = "jdbc:firebirdsql:192.168.20.17/3050:alter?lc_ctype=WIN1251;sql_dialect=3";
     private static final String user = "sysdba";
-    private static final String password = "sysadmin";
+    private static final String password = "strongpass";
 
     private Connection connection;
 
