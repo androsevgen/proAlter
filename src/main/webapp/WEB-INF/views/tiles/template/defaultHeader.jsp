@@ -1,3 +1,3 @@
 <div>
-    	<h1><a href="/"> ALTER S </a></h1>
+    	<h1>ALTER S</h1>
 </div>

@@ -4,6 +4,7 @@ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
 import org.apache.commons.csv.QuoteMode;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
@@ -14,6 +15,7 @@ public class csv {
         select_from_bd sel = new select_from_bd();
         try {
             CSVFormat csvFileFormat1 = CSVFormat.DEFAULT.withRecordSeparator("\n");
+
 
             FileWriter writer = new FileWriter("C:\\csv\\rcd.csv");
 
