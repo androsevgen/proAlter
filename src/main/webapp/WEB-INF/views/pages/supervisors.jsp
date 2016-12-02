@@ -7,7 +7,9 @@
 
 <h3>
 <%--Ваш файл на диску С в папці csv--%>
-    <h2><li><a href="\static\img\alter.png" download>Завантажити дані</a></li></h2>
+    <h2><li><a href="/download">Завантажити дані</a></li></h2>
+
+
 
 </h3>
 

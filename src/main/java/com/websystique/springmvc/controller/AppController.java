@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.proAlter.conect.select_from_bd;
 import com.proAlter.conect.csv;
 
-import java.io.File;
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
 
 @Controller
 //@RequestMapping("/")
@@ -53,31 +54,26 @@ public class AppController {
         return "dani";
     }
 
-    /*
-        @RequestMapping(value = "/getFile", method = RequestMethod.GET)
-        public ModelAndView out(HttpServletResponse response) {
+    @RequestMapping(value = "/download", method = RequestMethod.GET)
+    public void download(HttpServletResponse response) throws IOException {
 
-            ModelAndView mv = new ModelAndView();
+        File file = new File("C:\\csv\\rcd.csv");
+        InputStream is = new FileInputStream(file);
 
-
-            File file = new File("file.csv");
-            try {
-                FileInputStream fileIn = new FileInputStream(file);
-                response.setHeader("Content-Disposition", "attachment;filename=" + file);
-                response.setContentType("text/plain");
-
-                OutputStream os = response.getOutputStream();
-                IOUtils.copy(fileIn, os);
-                os.flush();
-                os.close();
-                fileIn.close();
-                response.flushBuffer();
-            } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-
-            return mv;
-        }*/
-
+        // MIME type of the file
+        response.setContentType("application/octet-stream");
+        // Response header
+        response.setHeader("Content-Disposition", "attachment; filename=\""
+                + file.getName() + "\"");
+        // Read from the file and write into the response
+        OutputStream os = response.getOutputStream();
+        byte[] buffer = new byte[1024];
+        int len;
+        while ((len = is.read(buffer)) != -1) {
+            os.write(buffer, 0, len);
+        }
+        os.flush();
+        os.close();
+        os.close();
+    }
 }
